@@ -1,0 +1,86 @@
+Brendan Mooney, tionette wilson, Craig Charlery, Guy Liotto
+
+mysql> CREATE DATABASE mooney_country;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE mooney_country;
+Database changed
+
+mysql> CREATE TABLE country_list(name_of_country VARCHAR(50) PRIMARY KEY NOT NULL, population INT NOT NULL, primary_language VARCHAR(50) NOT NULL, second_language VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("United States", 325700000, "English", "Spanish");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("Mexico", 129200000, "Spanish", "English");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("Canada", 36710000, "English", "French");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("Germany", 82520000, "German", "English");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("Italy", 60590000, "Italian", "English");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("China", 1386000000, "Mandarin", "Cantonese");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("Japan", 126800000, "Japanese", "English");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO country_list(name_of_country, population, primary_language, second_language) VALUES("India", 1339000000, "Hindi", "Urdu");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM country_list;
++-----------------+------------+------------------+-----------------+
+| name_of_country | population | primary_language | second_language |
++-----------------+------------+------------------+-----------------+
+| United States   |  325700000 | English          | Spanish         |
+| Mexico          |  129200000 | Spanish          | English         |
+| Canada          |   36710000 | English          | French          |
+| Germany         |   82520000 | German           | English         |
+| Italy           |   60590000 | Italian          | English         |
+| China           | 1386000000 | Mandarin         | Cantonese       |
+| Japan           |  126800000 | Japanese         | English         |
+| India           | 1339000000 | Hindi            | Urdu            |
++-----------------+------------+------------------+-----------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT name_of_country, population FROM country_list ORDER BY population DESC;
++-----------------+------------+
+| name_of_country | population |
++-----------------+------------+
+| China           | 1386000000 |
+| India           | 1339000000 |
+| United States   |  325700000 |
+| Mexico          |  129200000 |
+| Japan           |  126800000 |
+| Germany         |   82520000 |
+| Italy           |   60590000 |
+| Canada          |   36710000 |
++-----------------+------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT name_of_country, primary_language, second_language FROM country_list ORDER BY population ASC LIMIT 1;
++-----------------+------------------+-----------------+
+| name_of_country | primary_language | second_language |
++-----------------+------------------+-----------------+
+| Canada          | English          | French          |
++-----------------+------------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name_of_country FROM country_list WHERE primary_language = 'French';
+Empty set (0.00 sec)
+
+mysql> SELECT name_of_country FROM country_list WHERE primary_language = 'French' || second_language = 'French';
++-----------------+
+| name_of_country |
++-----------------+
+| Canada          |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name_of_country FROM country_list WHERE population > 30000000 && name_of_country = "%e";
+Empty set (0.00 sec)

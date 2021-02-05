@@ -1,0 +1,17 @@
+Title: Farmer’s Market 
+
+Description:  
+
+     Farmer’s Market is a local market located outside of the city where you can get your 
+fresh ingredients from. Since the market is outside of the city and some people don’t have a car,
+they want to make a database to make ordering products easier for the people that can’t reach them.  
+The Farmer’s Market database can hold different types of information like displaying the products,
+holding the customer accounts, maintaining the markets inventory, displaying the order shipment, 
+holding the manager’s account and displaying the receipt.The products will hold the item id, the
+item name and the item price. The customer accounts will hold the user id, name, password and email.
+The display will hold the status id, the status number, first and last name, email and the order 
+status of the product.The manager account will hold the manager id and password. 
+The orders will hold the order id, item id, quantity, the user id, the customer name, address, city,
+state, zip and total.Finally, the receipt will hold the receipt id, item id, item name, quantity, 
+the item price and total.With this information in the database, it will allow the customers from near	
+and far to get their fresh ingredients.  
